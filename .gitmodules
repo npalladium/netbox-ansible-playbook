@@ -1,0 +1,16 @@
+[submodule "roles/lae.netbox"]
+	path = roles/lae.netbox
+	url = https://github.com/lae/ansible-role-netbox.git
+	branch = master
+[submodule "roles/davidwittman.redis"]
+	path = roles/davidwittman.redis
+	url = https://github.com/DavidWittman/ansible-redis.git
+	branch = master
+[submodule "roles/geerlingguy.redis"]
+	path = roles/geerlingguy.redis
+	url = https://github.com/geerlingguy/ansible-role-redis.git
+	branch = master
+[submodule "roles/geerlingguy.postgresql"]
+	path = roles/geerlingguy.postgresql
+	url = https://github.com/geerlingguy/ansible-role-postgresql.git
+	branch = master

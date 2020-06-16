@@ -1,0 +1,28 @@
+- hosts: netbox 
+  become: yes
+  pre_tasks:
+    - name: Ensure updates before running roles
+      apt:
+        update_cache: yes
+        upgrade: 'yes'
+  roles:
+    - geerlingguy.postgresql
+    - davidwittman.redis
+    - lae.netbox
+  vars:
+    netbox_stable: true
+    netbox_stable_version: 2.8.6
+    netbox_database_socket: "{{ postgresql_unix_socket_directories[0] }}"
+    netbox_superuser_password: netbox
+    netbox_socket: "0.0.0.0:80"
+    netbox_config:
+      ALLOWED_HOSTS:
+        - 127.0.0.1
+        - "{{  hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}" 
+      MEDIA_ROOT: "{{ netbox_shared_path }}/media"
+      REPORTS_ROOT: "{{ netbox_shared_path }}/reports"
+      SCRIPTS_ROOT: "{{ netbox_shared_path }}/scripts"
+    postgresql_users:
+      - name: "{{ netbox_database_user }}"
+        role_attr_flags: CREATEDB,NOSUPERUSER
+    redis_bind: 127.0.0.1
