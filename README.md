@@ -3,7 +3,7 @@
 
 ## Installation
 
-You need to have Ansible installed.
+You need to have Ansible installed on your local system (or whichever "admin" server you choose). Ansible is "agentless", using SSH to push changes to remote resources. The requirement for the remote resource is that a Python interpreter be installed.
 
 ```sh
 git clone --recurse-submodules git@github.com:npalladium/netbox-ansible-playbook.git
@@ -21,6 +21,8 @@ Alternatively, the roles can be installed using ansible-galaxy.
 
 * Change the `inventory` file to point towards your server. 
 * Run `ansible-playbook site.yml -i inventory`.
+
+If you are not running as a root user, you will have to use `ansible-playbook site.yml -i inventory --extra-vars "ansible_sudo_pass=yourPassword"` or add a `ansible_sudo_pass='yourPassword'` variable to the inventory file.
 
 ## Built With
 
