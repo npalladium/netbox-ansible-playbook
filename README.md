@@ -1,6 +1,8 @@
 # NetBox Ansible Playbook
 > Playbook to setup NetBox on a host
 
+Refer NetBox documentation [here](https://netbox.readthedocs.io/en/stable/).
+
 ## Installation
 
 You need to have Ansible installed on your local system (or whichever "admin" server you choose). Ansible is "agentless", using SSH to push changes to remote resources. The only requirements for the remote resource are that a Python interpreter be installed and SSHD be running.
@@ -8,13 +10,13 @@ You need to have Ansible installed on your local system (or whichever "admin" se
 Clone this repository onto your local system with the following command:
 
 ```sh
-git clone --recurse-submodules git@github.com:npalladium/netbox-ansible-playbook.git
+git clone --recurse-submodules https://github.com/npalladium/netbox-ansible-playbook.git
 ```
 A normal git clone will not work as this repo uses submodules. 
 
 if you want to clone and update the submodules to their latest revision:
 ```sh
-git clone --recurse-submodules --remote-submodules git@github.com:npalladium/netbox-ansible-playbook.git
+git clone --recurse-submodules --remote-submodules https://github.com/npalladium/netbox-ansible-playbook.git
 ```
 
 Alternatively, the roles can be installed using ansible-galaxy.
@@ -22,9 +24,11 @@ Alternatively, the roles can be installed using ansible-galaxy.
 ## Usage example
 
 * Change the `inventory` file to point towards your server. 
-* Run `ansible-playbook site.yml -i inventory`.
+* Run `ansible-playbook netbox-setup-playbook.yml -i inventory`.
 
 If you are not running as a root user on the remote server, you will have to use `ansible-playbook site.yml -i inventory --extra-vars "ansible_sudo_pass=yourPassword"` or add a `ansible_sudo_pass='yourPassword'` variable to the inventory file.
+
+Your netbox username is `admin` and password is `netbox`.
 
 ## Built With
 
@@ -35,7 +39,7 @@ If you are not running as a root user on the remote server, you will have to use
 
 ## Authors
 
-* **Nikhil P** - *Initial work* - [npalladium][https://github.com/npalladium]
+* **Nikhil P** - *Initial work* - [npalladium](https://github.com/npalladium)
 
 ## License
 
