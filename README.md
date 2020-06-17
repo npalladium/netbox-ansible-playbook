@@ -29,7 +29,7 @@ If you are not running as a root user on the remote server, you will have to use
 ## Built With
 
 * [ansible-role-netbox](https://github.com/lae/ansible-role-netbox)
-* [ansible-redis](https://github.com/DavidWittman/ansible-redis)
+* [ansible-role-redis](https://github.com/geerlingguy/ansible-role-redis)
 * [ansible-role-postgresql](https://github.com/geerlingguy/ansible-role-postgresql)
 * [ansible-role-nginx](https://github.com/geerlingguy/ansible-role-nginx)
 

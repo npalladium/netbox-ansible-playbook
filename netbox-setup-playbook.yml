@@ -7,7 +7,7 @@
         upgrade: 'yes'
   roles:
     - geerlingguy.postgresql
-    - davidwittman.redis
+    - geerlingguy.redis
     - lae.netbox
   vars:
     netbox_stable: true
